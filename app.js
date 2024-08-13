@@ -1,6 +1,5 @@
 // 1662 line of code
 import express from 'express'
-import xlsxFile from 'read-excel-file/node'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import 'dotenv/config'
@@ -29,14 +28,7 @@ app.use('/log-in', login)
 app.use('/sign-up', signup)
 app.use('/profile', profile)
 
-xlsxFile('./java-roadmap.xlsx')
-  .then((rows) => {
-    rows.forEach((row) => {
-      row.forEach((cell) => {
-        // console.log(cell);
-      });
-    });
-  });
+
 
 app.get('/', checkCookieAvailabel, (req, res) => {
   if (req.cookies.token) {

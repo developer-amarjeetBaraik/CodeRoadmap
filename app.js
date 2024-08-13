@@ -3,7 +3,6 @@ import express from 'express'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import 'dotenv/config'
-import mongoose from 'mongoose'
 import login from './routes/login.js'
 import signup from './routes/signup.js'
 import profile from './routes/profile.js'
@@ -39,10 +38,10 @@ app.get('/', checkCookieAvailabel, (req, res) => {
   }
 })
 
+// loging out user
 app.post('/delete-token', (req, res) => {
-  console.log('deleted')
   res.clearCookie('token')
-  console.log('redirecting...')
+  // Redirecting to home
   res.redirect('/')
 })
 

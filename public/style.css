@@ -76,8 +76,7 @@ nav .navigation #profile {
     position: relative;
     width: 45px;
     height: 45px;
-    background-color: black;
-    border:  1px solid var(--primary-color);
+    /* border:  1px solid var(--primary-color); */
     border-radius: 50%;
     font-size: 15px;
     font-weight: 500;
@@ -85,9 +84,8 @@ nav .navigation #profile {
 }
 
 #profile::after{
-    content: var(--my-content, );
+    /* content: var(--my-content, 'A'); */
     font-size: 1.5rem;
-    color: var(--text-color);
 }
 
 nav .navigation #profileDilogBox{

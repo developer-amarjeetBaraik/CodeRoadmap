@@ -6,8 +6,8 @@ async function fetchCollections() {
         method: 'POST'
     }).then(response => response.json())
         .then(data => {
-            const userSign = data[0].email[0].toUpperCase()
-            document.getElementById('profile').style.setProperty('--my-content', `"${userSign}"`)
+            console.log(data[0].email[0])
+            document.getElementById('profile').style.setProperty('--my-content', 'C');
             console.log(document.getElementById('profile'))
 
             data[0].collections.forEach(async (e, index) => {

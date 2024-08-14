@@ -3,6 +3,9 @@ const createCollectionBtn = document.getElementById('createCollection')
 const collections = document.getElementById('collections')
 const crossBtn = document.getElementById('programmingListCross')
 const langWindow = document.getElementById('programmingList-bg')
+const programmingList = document.querySelector('.programmingList')
+const selectLangBtn = document.getElementById('selectlangbtn')
+
 async function fetchCollections() {
     await fetch('./collection-details', {
         method: 'POST'
@@ -122,18 +125,18 @@ async function fetchCollections() {
             })
         })
     })
-document.querySelectorAll('.topic').forEach(topic => {
-    topic.addEventListener('click', (event) => {
-        let topicId = topic.id.slice(5)
-        let subtopicList = document.getElementById(`subtopics${topicId}`)
-        if (subtopicList.style.display == 'block') {
-            subtopicList.style.display = 'none'
-        }
-        else {
-            subtopicList.style.display = 'block'
-        }
+    document.querySelectorAll('.topic').forEach(topic => {
+        topic.addEventListener('click', (event) => {
+            let topicId = topic.id.slice(5)
+            let subtopicList = document.getElementById(`subtopics${topicId}`)
+            if (subtopicList.style.display == 'block') {
+                subtopicList.style.display = 'none'
+            }
+            else {
+                subtopicList.style.display = 'block'
+            }
+        })
     })
-})
 }
 
 fetchCollections()
@@ -142,20 +145,40 @@ fetchCollections()
 createCollectionBtn.addEventListener('click', () => {
 
     langWindow.style.visibility = 'visible'
-    // fetch('./create-collection', {
-    //     method: 'POST',
-    //     credentials: "include"
-    // }).then(response => response.text())
-    //     .then(data => {
-    //         console.log(data)
-    //     })
-    //     .catch(err => {
-    //         console.log(err)
-    //     })
+
 })
 
 
 // manage language selection window
-crossBtn,window.addEventListener('click', ()=>{
+programmingList.addEventListener('click', () => {
+    event.stopPropagation()
+    langWindow.style.visibility = 'visible'
+})
+crossBtn.addEventListener('click', () => {
+    event.stopPropagation()
     langWindow.style.visibility = 'hidden'
+})
+crossBtn, langWindow.addEventListener('click', () => {
+    langWindow.style.visibility = 'hidden'
+})
+
+// manage language create btn
+selectLangBtn.addEventListener('click', () => {
+    const langValue = document.getElementById('list').value
+
+    fetch('./create-collection', {
+        method: 'POST',
+        credentials: "include",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ langValue: langValue})
+    }).then(response => response.text())
+        .then(data => {
+            location.reload()
+            console.log(data)
+        })
+        .catch(err => {
+            console.log(err)
+        })
 })

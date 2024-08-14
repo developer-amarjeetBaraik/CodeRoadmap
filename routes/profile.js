@@ -20,19 +20,24 @@ app.use(cookieParser())
 
 
 // Createing function to add roadmap content in database
-function createRoadmap(identifierEmail) {
-    fs.readFile('./javascript.json', async (err, data) => {
-        await contentInfo.updateOne({ email: identifierEmail }, {
-            $push: {
-                collections: [JSON.parse(data)]
-            }
-        })
-            .then(data => {
-                console.log(data)
+function createRoadmap(identifierEmail, langValue) {
+    fs.readFile(`./${langValue}.json`, async (err, data) => {
+        if (data != undefined) {
+            await contentInfo.updateOne({ email: identifierEmail }, {
+                $push: {
+                    collections: [JSON.parse(data)]
+                }
             })
-            .catch(err => {
-                console.log(err)
-            })
+                .then(data => {
+                    console.log(data)
+                })
+                .catch(err => {
+                    console.log(err)
+                })           
+        }
+        else{
+            console.log(err.message)
+        }
     })
 }
 
@@ -63,9 +68,10 @@ router.post('/collection-details', (req, res) => {
 
 //create new collection
 router.post('/create-collection', (req, res) => {
+    const langValue = req.body.langValue
     const token = req.cookies.token
     const identifierEmail = jwt.decode(token).email
-    createRoadmap(identifierEmail)
+    createRoadmap(identifierEmail, langValue)
     res.send('your collection created')
 })
 

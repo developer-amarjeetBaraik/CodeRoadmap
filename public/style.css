@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -77,20 +78,20 @@ nav .navigation #profile {
     width: 45px;
     height: 45px;
     background-color: black;
-    border:  1px solid var(--primary-color);
+    border: 1px solid var(--primary-color);
     border-radius: 50%;
     font-size: 15px;
     font-weight: 500;
     cursor: pointer;
 }
 
-#profile::after{
+#profile::after {
     content: var(--my-content, );
     font-size: 1.5rem;
     color: var(--text-color);
 }
 
-nav .navigation #profileDilogBox{
+nav .navigation #profileDilogBox {
     position: absolute;
     top: 0;
     right: -25px;
@@ -103,13 +104,14 @@ nav .navigation #profileDilogBox{
     display: none;
     z-index: 10;
 }
-nav .navigation #profileDilogBox h4:hover{
+
+nav .navigation #profileDilogBox h4:hover {
     transform: scale(1.1);
 
 }
 
 
-.home{
+.home {
     width: 98%;
     height: auto;
     margin: 10px auto;
@@ -202,7 +204,7 @@ nav .navigation #profileDilogBox h4:hover{
     font-weight: 100;
 }
 
-.start-today{
+.start-today {
     width: 98%;
     height: auto;
     margin: 10px auto;
@@ -216,14 +218,16 @@ nav .navigation #profileDilogBox h4:hover{
     background-color: var(--secondary-color);
     color: var(--text-color);
 }
-.start-today .cards{
+
+.start-today .cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
-.start-today .card{
+
+.start-today .card {
     width: 320px;
     height: 325px;
     padding: 40px;
@@ -234,15 +238,18 @@ nav .navigation #profileDilogBox h4:hover{
     align-items: center;
     gap: 30px;
 }
-.start-today .card h3{
+
+.start-today .card h3 {
     font-weight: 400;
     margin: 10px 0;
 }
-.start-today .card p{
+
+.start-today .card p {
     text-align: center;
     font-weight: 300;
 }
-.bottom{
+
+.bottom {
     padding: 80px 200px;
     width: 98%;
     color: var(--text-color);
@@ -250,18 +257,21 @@ nav .navigation #profileDilogBox h4:hover{
     text-align: center;
     font-size: 1.3rem;
 }
-.bottom h3{
+
+.bottom h3 {
     font-weight: 400;
     line-height: 45px;
 }
-footer{
+
+footer {
     width: 100%;
     height: 50vh;
     margin: auto;
     padding: 40px 40px;
     background-color: var(--secondary-color);
 }
-.footer-info{
+
+.footer-info {
     width: 98%;
     height: 80%;
     padding: 0 50px;
@@ -269,12 +279,14 @@ footer{
     justify-content: space-between;
     align-items: center;
 }
-footer #developer-message h3{
+
+footer #developer-message h3 {
     color: var(--text-color);
     font-size: 1.2rem;
     font-weight: 300;
 }
-footer #developer-info{
+
+footer #developer-info {
     width: 270px;
     height: 250px;
     padding: 20px;
@@ -283,21 +295,25 @@ footer #developer-info{
     background-color: var(--primary-color);
     color: var(--text-color);
 }
-footer #developer-info h4{
+
+footer #developer-info h4 {
     font-size: 1.5rem;
     margin-bottom: 15px;
 }
-footer #developer-info p{
+
+footer #developer-info p {
     font-size: 16px;
 }
-footer #developer-info #socialmedia-icon{
+
+footer #developer-info #socialmedia-icon {
     width: 70%;
     height: 10px;
     margin-top: 20px;
     display: flex;
     gap: 15px;
 }
-footer .copy-right{
+
+footer .copy-right {
     width: 100%;
     text-align: center;
     font-size: 0.7rem;
@@ -307,7 +323,7 @@ footer .copy-right{
 
 
 /* design for collection page */
-#section{
+#section {
     margin: 7px auto;
     padding: 30px 50px;
     width: 98%;
@@ -321,37 +337,92 @@ footer .copy-right{
 }
 
 /* designing popup window for language list */
-.programmingList-bg{
+#programmingList-bg {
     position: absolute;
     top: 0;
     width: 100vw;
     height: 100vh;
+    background-color: rgba(0, 0, 0, 0.621);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 10;
-    /* display: none; */
+    visibility: hidden;
 }
-.programmingList{
+
+.programmingList {
+    position: relative;
     width: 50vw;
     height: 30vw;
-    background-color: yellow;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
     z-index: 10;
 }
-#collections{
+
+#programmingListCross {
+    padding: 5px 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.2);
+        background-color: rgba(255, 255, 255, 0.329);
+    }
+}
+
+.programmingList h3 {
+    font-size: 40px;
+}
+
+.programmingList select {
+    width: 30%;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.programmingList select option {
+    font-size: 17px;
+}
+
+.programmingList button {
+    width: 100px;
+    height: 35px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+#collections {
     width: 50%;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.collZoneCombo{
+
+.collZoneCombo {
     width: 90%;
     height: auto;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
-.collection{
+
+.collection {
     padding: 0 30px;
     width: 100%;
     height: 80px;
@@ -361,7 +432,8 @@ footer .copy-right{
     display: flex;
     cursor: pointer;
 }
-.collection .coll-left{
+
+.collection .coll-left {
     width: 60%;
     height: 100%;
     display: flex;
@@ -369,11 +441,13 @@ footer .copy-right{
     justify-content: start;
     gap: 10px;
 }
-.collection .coll-right{
+
+.collection .coll-right {
     width: 40%;
     height: 100%;
 }
-.subColl{
+
+.subColl {
     margin: 7px 0;
     width: 85%;
     height: 80px;
@@ -385,7 +459,8 @@ footer .copy-right{
     display: none;
     cursor: pointer;
 }
-.subColl .zone{
+
+.subColl .zone {
     padding: 0 15px;
     height: 90px;
     background-color: var(--primary-color);
@@ -393,7 +468,8 @@ footer .copy-right{
     display: flex;
     align-items: center;
 }
-.subColl .zone .zoneDetail{
+
+.subColl .zone .zoneDetail {
     width: auto;
     height: auto;
     display: flex;
@@ -402,7 +478,7 @@ footer .copy-right{
     color: var(--text-color);
 }
 
-#topics{
+#topics {
     padding: 15px;
     width: 50%;
     min-height: 60vh;
@@ -412,7 +488,7 @@ footer .copy-right{
     border-radius: 5px;
 }
 
-.topicSubtopicCombo{
+.topicSubtopicCombo {
     margin: 10px 0;
     width: 100%;
     height: auto;
@@ -424,7 +500,7 @@ footer .copy-right{
     display: none;
 }
 
-.topicSubtopicCombo .topic{
+.topicSubtopicCombo .topic {
     padding: 0 30px;
     margin: 10px 0;
     width: 100%;
@@ -439,7 +515,7 @@ footer .copy-right{
     cursor: pointer;
 }
 
-.topicSubtopicCombo .subtopicList{
+.topicSubtopicCombo .subtopicList {
     width: 90%;
     margin-left: auto;
     height: auto;
@@ -449,7 +525,8 @@ footer .copy-right{
     gap: 10px;
     display: none;
 }
-.subtopicList .subTopic{
+
+.subtopicList .subTopic {
     padding: 0 15px;
     margin: 10px 0;
     width: 100%;

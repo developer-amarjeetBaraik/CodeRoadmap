@@ -1,6 +1,8 @@
 document.getElementById('nav').style.position = 'relative'
 const createCollectionBtn = document.getElementById('createCollection')
 const collections = document.getElementById('collections')
+const crossBtn = document.getElementById('programmingListCross')
+const langWindow = document.getElementById('programmingList-bg')
 async function fetchCollections() {
     await fetch('./collection-details', {
         method: 'POST'
@@ -138,14 +140,22 @@ fetchCollections()
 
 
 createCollectionBtn.addEventListener('click', () => {
-    fetch('./create-collection', {
-        method: 'POST',
-        credentials: "include"
-    }).then(response => response.text())
-        .then(data => {
-            console.log(data)
-        })
-        .catch(err => {
-            console.log(err)
-        })
+
+    langWindow.style.visibility = 'visible'
+    // fetch('./create-collection', {
+    //     method: 'POST',
+    //     credentials: "include"
+    // }).then(response => response.text())
+    //     .then(data => {
+    //         console.log(data)
+    //     })
+    //     .catch(err => {
+    //         console.log(err)
+    //     })
+})
+
+
+// manage language selection window
+crossBtn,window.addEventListener('click', ()=>{
+    langWindow.style.visibility = 'hidden'
 })

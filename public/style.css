@@ -31,7 +31,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 0 50px;
-    z-index: 10;
+    z-index: 1;
 }
 
 nav #logo a {
@@ -318,6 +318,25 @@ footer .copy-right{
     display: flex;
     justify-content: space-between;
     gap: 30px;
+}
+
+/* designing popup window for language list */
+.programmingList-bg{
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    /* display: none; */
+}
+.programmingList{
+    width: 50vw;
+    height: 30vw;
+    background-color: yellow;
+    z-index: 10;
 }
 #collections{
     width: 50%;

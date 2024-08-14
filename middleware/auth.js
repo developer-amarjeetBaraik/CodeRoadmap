@@ -8,7 +8,6 @@ app.use(cookieParser())
 
 const auth = (req, res, next) => {
     // console.log(jwt.decode(req.cookies.token).id)
-    console.log(req.params.slug)
     const token = req.cookies.token
     if (!token) {
         res.redirect('/log-in')
